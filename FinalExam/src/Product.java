@@ -1,5 +1,5 @@
 
-public class Product {
+public abstract class Product {
 	public Color color;
 	private String mark;
 	private boolean isWriting;

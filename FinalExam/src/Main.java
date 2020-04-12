@@ -1,28 +1,19 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 	public static void main(String[] args) {
 
 		Product[] products = new Product[50];
-		Color[] colors = new Color[4];
-		colors[0] = Color.green;
-		colors[1] = Color.black;
-		colors[2] = Color.blue;
-		colors[3] = Color.red;
-		int colorCount = 0;
+		List<Color> colors = new ArrayList<Color>(Arrays.asList(Color.green, Color.black, Color.blue, Color.red));
+		List<String> marks=new ArrayList<>(Arrays.asList("he","map","prosv","buda"));
+		
+		Random random=new Random();
 		for (int i = 0; i < products.length-1; i++) {
-			for (int j = colorCount; j < colors.length; j++) {
-				products[i] = new Marker(colors[j], "helikon", true, 2.5, 150, false);
-				products[i+1] = new Pen(colors[j], "pen", false);
-				if (j < colors.length - 1) {
-					colorCount = ++j;
-				} else {
-					colorCount = 0;
-				}
-				break;
-			}
+			products[i]=new Marker(colors.get(random.nextInt(4)), marks.get(random.nextInt(4)), true, 2.5, 115, true);
+			products[i+1]=new Pen(colors.get(random.nextInt(4)), marks.get(random.nextInt(4)), false);
 
 		}
 
